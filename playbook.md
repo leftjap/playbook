@@ -64,7 +64,7 @@
 | 이름표 | `C:\dev\nametag\` | `leftjap/nametag-game` | 있음 | 운영 중. 브랜드 시스템 완료 |
 | 서재 어구록 | `C:\dev\docs\서재\` | `leftjap/docs` | 있음 | quote_tags 반영 대기 |
 | 오늘의내비 | `C:\dev\docs\오늘의내비\` | `leftjap/docs` | 있음 | 운영 중 |
-| 운동 | `C:\dev\workout\` | `leftjap/gorilla` | 있음 | MVP 실사용 중, 버그 다수 |
+| 운동 | `C:\dev\apps\gym\` | `leftjap/gym` | 있음 | MVP 실사용 중, 버그 다수 |
 | 어학 | `C:\dev\apps\study\` | `leftjap/study` | 있음 | Phase 2 중간 |
 | 크립토 | `C:\dev\docs\투자 전략\` | `leftjap/docs` | 있음 | 문서 수시 갱신 |
 | 글쓰기 | `C:\dev\docs\글쓰기\` | `leftjap/docs` | 있음 | 문서 수시 추가 |
@@ -202,6 +202,7 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다.
 
 ## 7. 변경 이력
 
+- 3/24: **gym 이름 변경 완료** (Gorilla→gym). GitHub leftjap/gorilla→leftjap/gym. 로컬 C:\dev\workout\→C:\dev\apps\gym\. Google Drive Gorilla→apps/gym/. manifest.json, index.html, AGENTS.md 경로 갱신. gas/Code.js 갱신 (주석, AUTH_TOKEN, rootFolder, message). clasp pull + push + 수동 배포 완료. 스모크 테스트 3/3 통과. playbook.md 프로젝트 맵 갱신.
 - 3/24: **study 앱 clasp 설정 완료**. .clasp.json 생성 + appsscript.json pull + Code.js rootFolder 'study' 갱신 + clasp push + 수동 배포 완료. L-04 교훈 적용 (수동 재배포 필수).
 - 3/24: CLAUDE.md → playbook.md 이름 변경. claude-config → playbook-config. 전 프로젝트 AGENTS.md 경로 갱신 (7개). study 이름 변경 완료 (GitHub lang-app→study, 로컬→C:\dev\apps\study\, Google Drive→apps/study/, manifest Lang→Study, gas/Code.js rootFolder→study). Google Drive docs/ 폴더 구조 정리 (navi, reading, personal).
 - 3/24: claude-config 레포 생성, CLAUDE.md 이동. L-09 추가 (문서 비대화 방지). I-01 범위 확장 (CLAUDE.md 경량화 포함, 실행 기준 수치 추가).

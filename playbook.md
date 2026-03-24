@@ -29,6 +29,10 @@
 - 교훈 추가 (반복 실패 감지 시)
 - 변경 이력 추가
 
+**필수 규칙:**
+- AI는 모든 작업지시서에 playbook.md 갱신 Step을 자동 포함한다. 사용자가 요청하지 않아도 포함한다. 빠뜨리면 안 된다.
+- 사용자에게 "직접 넣으시겠습니까?"라고 묻지 않는다.
+
 갱신 방법:
   cd "C:\dev\playbook-config"
   git add playbook.md
@@ -131,6 +135,7 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다.
 | L-07 | 멀티유저 설정 오염 | MUST: USER_CONFIG 보호 체크리스트 확인 | 이름표 |
 | L-08 | sed/tr로 파일 소실 | MUST NOT: Unix 텍스트 도구 사용 금지. PowerShell 또는 VS Code만 | 전체 |
 | L-09 | CLAUDE.md/AGENTS.md 비대화로 AI 준수율 하락 | MUST: 루트 문서는 라우터 역할. 상시 로드 100줄 이하 목표. 작업별 상세는 별도 파일로 progressive disclosure. Instruction budget ~150개 (시스템 프롬프트 ~50개 차감 후 사용자 몫 ~100개) | 전체 |
+| L-10 | GAS Code.js 수정했으나 Apps Script에 수동 복사 필요 | MUST: 모든 GAS 프로젝트에 clasp 설정 완료. 작업지시서에 clasp push Step 포함. Apps Script 에디터에서 수동 복사 금지 | GAS 수정 전체 |
 
 ---
 

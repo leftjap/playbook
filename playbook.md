@@ -67,7 +67,7 @@
 | 운동 | `C:\dev\apps\gym\` | `leftjap/gym` | 있음 | MVP 실사용 중, 버그 다수 |
 | 어학 | `C:\dev\apps\study\` | `leftjap/study` | 있음 | Phase 2 중간 |
 | 크립토 | `C:\dev\docs\투자 전략\` | `leftjap/docs` | 있음 | 문서 수시 갱신 |
-| 글쓰기 | `C:\dev\docs\글쓰기\` | `leftjap/docs` | 있음 | 문서 수시 추가 |
+| keep | `C:\dev\apps\keep\` | `leftjap/keep` | 미생성 | 이름 확정, 셋업 대기 |
 
 ---
 
@@ -95,6 +95,7 @@
 | B-17 | 이름표 | 지오 게시물 클로드 댓글 구현 | P2 | B-15, B-16 완료 후 |
 | B-18 | 이름표+서재 | 서재 발췌문 통합: quotes-data.json → app_database.json books에 흡수. 오늘의내비 피드백은 이름표 GAS로 엔드포인트 변경. 서재 GAS는 폐기 또는 읽기전용. LocalStorage 크기 OK (현재 0.79MB + 발췌문 ~1MB). 미결정: 발췌문 입력 UI, 태그 자동 판단 위치, 102권 마이그레이션, 마크다운 동기화 | P3 | B-01 후. 인수인계서 참조 |
 | B-19 | 서재 | 나머지 13권 quote_tags | P3 | B-01 후 |
+| B-20 | keep | 리네이밍 셋업 (레포·로컬 폴더·Drive·manifest·AGENTS.md) | P1 | 기존 앱에서 이름 변경. gym·study 리네이밍과 동일 패턴 |
 
 ### ⚪ 아이디어
 
@@ -202,6 +203,7 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다.
 
 ## 7. 변경 이력
 
+- 3/24: 글쓰기 대시보드 앱 이름 `keep`으로 확정 (글쓰기+가계부+루틴). 프로젝트 맵에서 글쓰기→keep 교체. 리네이밍 셋업 B-20 등록.
 - 3/24: 이름표 app.js showApp()의 loadAll 경로에서 SYNC.isDbLoaded 미설정 버그 수정. localOnly expenses 재전송이 isDbLoaded 가드에 막혀 서버에 도달 못하던 근본 원인.
 - 3/24: 이름표 가계부 캘린더 날짜 꾹누르기 삭제 기능 추가. 운동앱 터치 핸들러 패턴 적용 (touchstart 600ms, 짧은탭/롱프레스 분기, user-select:none).
 - 3/24: **gym 이름 변경 완료** (Gorilla→gym). GitHub leftjap/gorilla→leftjap/gym. 로컬 C:\dev\workout\→C:\dev\apps\gym\. Google Drive Gorilla→apps/gym/. manifest.json, index.html, AGENTS.md 경로 갱신. gas/Code.js 갱신 (주석, AUTH_TOKEN, rootFolder, message). clasp pull + push + 수동 배포 완료. 스모크 테스트 3/3 통과. playbook.md 프로젝트 맵 갱신.

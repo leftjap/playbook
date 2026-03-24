@@ -1,4 +1,4 @@
-# CLAUDE.md — 크로스 프로젝트 오퍼레이션
+# playbook.md — 크로스 프로젝트 오퍼레이션
 
 > 이 문서는 AI의 운영 체제다. "뭘 할지" 결정하고 "어떻게 할지"로 라우팅한다.
 > 프로젝트별 상세 규칙은 각 AGENTS.md가 담당한다. 이 문서에 프로젝트 상세를 넣지 않는다.
@@ -17,12 +17,12 @@
 ### 세션 중 라우팅
 
 - 작업 대상이 정해지면 → 해당 프로젝트 AGENTS.md를 업로드하거나 AI가 크롤링한다.
-- CLAUDE.md는 컨텍스트에 남아 있되, 작업지시서 생성은 AGENTS.md 규칙을 따른다.
-- CLAUDE.md의 교훈(3번)과 검증 규칙(4번)은 모든 작업지시서에 자동 적용된다.
+- playbook.md는 컨텍스트에 남아 있되, 작업지시서 생성은 AGENTS.md 규칙을 따른다.
+- playbook.md의 교훈(3번)과 검증 규칙(4번)은 모든 작업지시서에 자동 적용된다.
 
-### 세션 종료 — CLAUDE.md 갱신
+### 세션 종료 — playbook.md 갱신
 
-모든 프로젝트의 작업지시서 마지막에 CLAUDE.md 갱신 Step을 포함한다.
+모든 프로젝트의 작업지시서 마지막에 playbook.md 갱신 Step을 포함한다.
 
 갱신 대상:
 - 백로그 상태 변경 (진행 중 → 완료, 새 이슈 추가)
@@ -30,9 +30,9 @@
 - 변경 이력 추가
 
 갱신 방법:
-  cd "C:\dev\claude-config"
-  git add CLAUDE.md
-  git commit -m "update: CLAUDE.md [변경 요약]"
+  cd "C:\dev\playbook-config"
+  git add playbook.md
+  git commit -m "update: playbook.md [변경 요약]"
   git push origin main
 
 ### AI 응답 규칙
@@ -61,7 +61,7 @@
 | 서재 어구록 | `C:\dev\docs\서재\` | `leftjap/docs` | 있음 | quote_tags 반영 대기 |
 | 오늘의내비 | `C:\dev\docs\오늘의내비\` | `leftjap/docs` | 있음 | 운영 중 |
 | 운동 | `C:\dev\workout\` | `leftjap/gorilla` | 있음 | MVP 실사용 중, 버그 다수 |
-| 어학 | `C:\dev\lang-app\` | `leftjap/lang-app` | 있음 | Phase 2 중간 |
+| 어학 | `C:\dev\apps\study\` | `leftjap/study` | 있음 | Phase 2 중간 |
 | 크립토 | `C:\dev\docs\투자 전략\` | `leftjap/docs` | 있음 | 문서 수시 갱신 |
 | 글쓰기 | `C:\dev\docs\글쓰기\` | `leftjap/docs` | 있음 | 문서 수시 추가 |
 
@@ -96,7 +96,7 @@
 
 | ID | 프로젝트 | 작업 | 메모 |
 |---|---|---|---|
-| I-01 | 전체 | 문서 경량화: ①AGENTS.md → 핵심 규칙만 남기고 참조 정보를 AGENTS-ref.md로 분리. ②CLAUDE.md → 백로그 상세를 backlog.md로 분리, Haiku 규칙(6번)을 haiku-rules.md로 분리. 루트 문서는 라우터+요약만 유지 | A방식(분리) 확정. 기준: always-on 100줄 이하, instruction budget ~100개. P0 버그 해소 직후 실행. 분리 파일은 claude-config 레포에 배치 |
+| I-01 | 전체 | 문서 경량화: ①AGENTS.md → 핵심 규칙만 남기고 참조 정보를 AGENTS-ref.md로 분리. ②playbook.md → 백로그 상세를 backlog.md로 분리, Haiku 규칙(6번)을 haiku-rules.md로 분리. 루트 문서는 라우터+요약만 유지 | A방식(분리) 확정. 기준: always-on 100줄 이하, instruction budget ~100개. P0 버그 해소 직후 실행. 분리 파일은 playbook-config 레포에 배치 |
 | I-02 | 전체 | 웹앱 AGENTS.md 공통 섹션 템플릿화 | |
 | I-03 | 어학 | Phase 2 이후 전체 (할 게 많음 — 별도 세션에서 분해) | |
 
@@ -197,5 +197,6 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다.
 
 ## 7. 변경 이력
 
+- 3/24: CLAUDE.md → playbook.md 이름 변경. claude-config → playbook-config. 전 프로젝트 AGENTS.md 경로 갱신 (7개). study 이름 변경 완료 (GitHub lang-app→study, 로컬→C:\dev\apps\study\, Google Drive→apps/study/, manifest Lang→Study, gas/Code.js rootFolder→study). Google Drive docs/ 폴더 구조 정리 (navi, reading, personal).
 - 3/24: claude-config 레포 생성, CLAUDE.md 이동. L-09 추가 (문서 비대화 방지). I-01 범위 확장 (CLAUDE.md 경량화 포함, 실행 기준 수치 추가).
 - 3/23: CLAUDE.md 최초 생성. 프로젝트 맵 7개, 백로그 8건+아이디어 3건, 교훈 8건, 검증 3단계, Haiku 규칙, 우선순위 프레임워크.

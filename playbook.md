@@ -29,6 +29,10 @@
 - 교훈 추가 (반복 실패 감지 시)
 - 변경 이력 추가
 
+변경 이력 정리:
+- 최근 5건만 유지한다. 6건 이상이면 오래된 항목부터 삭제한다.
+- 월 단위 요약은 하지 않는다. 원본은 git log에 있다.
+
 **필수 규칙:**
 - AI는 모든 작업지시서에 playbook.md 갱신 Step을 자동 포함한다. 사용자가 요청하지 않아도 포함한다. 빠뜨리면 안 된다.
 - 사용자에게 "직접 넣으시겠습니까?"라고 묻지 않는다.
@@ -398,19 +402,10 @@ $file = '[파일 절대 경로]'
 
 ## 8. 변경 이력
 
-- 3/25: **keep AGENTS.md 경량화 완료** (2,500줄→660줄). 함수맵(§8)/호출체인(§14)/전역변수(§12)/스키마(§15)/흐름(§9)/콘솔레퍼런스/변경로그 삭제. 가계부운영(§21)+매출처정제(§22) 압축. 디버깅(§23)/소스참조(§24) 압축. 번호 재배정(0~17). sync↔GAS 연결테이블·멀티유저테이블 유지. I-01 방향 적용.
 - 3/25: 어학앱 복습 판정 UI 방향 확정. 도형 3종 → 어려움/보통/쉬움 텍스트 라벨. 틀린 카드 자동 분기 추가. Leitner 3-Box + FSRS 2버튼 논의 조사 후 결정.
-- 3/25: **study AGENTS.md 경량화 완료** (1,130줄→530줄). 함수맵/호출체인/전역변수/스키마(reviewQueue 핵심만 유지)/Phase진행/콘솔레퍼런스 삭제. 경로 수정(C:\dev\study→C:\dev\apps\study, playbook-config→playbook). 레포명 갱신(gorilla→gym, nametag-game→keep). I-01 방향 적용.
+- 3/25: **study AGENTS.md 경량화 완료** (1,130줄→530줄). 함수맵/호출체인/전역변수/스키마/Phase진행/콘솔레퍼런스 삭제. 경로 수정. 레포명 갱신. I-01 방향 적용.
 - 3/25: **gym AGENTS.md 경량화 완료** (1,200줄→470줄). 함수맵/호출체인/스키마/전역변수/진행상황/이력 삭제. 규칙+교훈+디자인가이드만 유지. I-01 방향 적용.
-- 3/25: **nametag-game → keep 이름 변경 완료**. GitHub leftjap/nametag-game→leftjap/keep. 로컬 C:\dev\nametag\→C:\dev\apps\keep\. Google Drive 코드 폴더 없음 (스킵). index.html title/apple-mobile-web-app-title 갱신. AGENTS.md 경로 치환. gas/Code.js 확인 (수정 없음). clasp push 완료 (변경사항 없음, 수동 재배포 대기). playbook.md 프로젝트 맵 갱신 (이명표→keep 통합, 상태→운영 중).
+- 3/25: **nametag-game → keep 이름 변경 완료**. GitHub leftjap/nametag-game→leftjap/keep. 로컬→C:\dev\apps\keep\. AGENTS.md 경로 치환. playbook.md 프로젝트 맵 갱신.
 - 3/25: 이름표 AGENTS.md 경로 치환 (playbook-config→playbook) 3건.
-- 3/25: **B-20 keep 리네이밍 셋업 완료**. playbook-config→playbook, notes→list. playbook.md, 심링크, GitHub remote 갱신. list/README.md→INDEX.md 통합. 세션노트 1건 저장. 작업지시서 원칙 섹션 추가.
-- 3/24: notes/ 폴더 신설 + 운영 규칙(README.md). 세션 노트 3건 저장(keep 이름 결정, 습관 트래킹 vs 전용 앱, Claude Code 데스크톱 검토). 프로젝트 맵에 keep 추가(글쓰기 교체). B-20(keep 리네이밍), I-04(데스크톱 앱 토큰 비교) 등록.
-- 3/24: 글쓰기 대시보드 앱 이름 `keep`으로 확정 (글쓰기+가계부+루틴). 프로젝트 맵에서 글쓰기→keep 교체. 리네이밍 셋업 B-20 등록.
-- 3/24: 이름표 app.js showApp()의 loadAll 경로에서 SYNC.isDbLoaded 미설정 버그 수정. localOnly expenses 재전송이 isDbLoaded 가드에 막혀 서버에 도달 못하던 근본 원인.
-- 3/24: 이름표 가계부 캘린더 날짜 꾹누르기 삭제 기능 추가. 운동앱 터치 핸들러 패턴 적용 (touchstart 600ms, 짧은탭/롱프레스 분기, user-select:none).
-- 3/24: **gym 이름 변경 완료** (Gorilla→gym). GitHub leftjap/gorilla→leftjap/gym. 로컬 C:\dev\workout\→C:\dev\apps\gym\. Google Drive Gorilla→apps/gym/. manifest.json, index.html, AGENTS.md 경로 갱신. gas/Code.js 갱신 (주석, AUTH_TOKEN, rootFolder, message). clasp pull + push + 수동 배포 완료. 스모크 테스트 3/3 통과. playbook.md 프로젝트 맵 갱신.
-- 3/24: **study 앱 clasp 설정 완료**. .clasp.json 생성 + appsscript.json pull + Code.js rootFolder 'study' 갱신 + clasp push + 수동 배포 완료. L-04 교훈 적용 (수동 재배포 필수).
-- 3/24: CLAUDE.md → playbook.md 이름 변경. claude-config → playbook-config. 전 프로젝트 AGENTS.md 경로 갱신 (7개). study 이름 변경 완료 (GitHub lang-app→study, 로컬→C:\dev\apps\study\, Google Drive→apps/study/, manifest Lang→Study, gas/Code.js rootFolder→study). Google Drive docs/ 폴더 구조 정리 (navi, reading, personal).
 - 3/24: claude-config 레포 생성, CLAUDE.md 이동. L-09 추가 (문서 비대화 방지). I-01 범위 확장 (CLAUDE.md 경량화 포함, 실행 기준 수치 추가).
 - 3/23: CLAUDE.md 최초 생성. 프로젝트 맵 7개, 백로그 8건+아이디어 3건, 교훈 8건, 검증 3단계, Haiku 규칙, 우선순위 프레임워크.

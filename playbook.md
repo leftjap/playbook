@@ -77,7 +77,7 @@
 | ID | 프로젝트 | 작업 | 상태 | 메모 |
 |---|---|---|---|---|
 | B-01 | 서재 | quote_tags 89권 반영 (PowerShell 11회) | 작업지시서 완료, 실행 대기 | |
-| B-02 | 어학 | Phase 2: 복습 판정 + reviewQueue 갱신 | 스와이프까지 완료 | |
+| B-02 | 어학 | Phase 2: 복습 판정 + reviewQueue 갱신 | 스와이프까지 완료 | 판정 UI 방향 확정: 도형 3종→어려움/보통/쉬움 라벨. 틀린 카드는 자동 분기(재출제). 맞힌 카드만 3버튼. 간격: 어려움(유지~소폭↑)/보통(표준↑)/쉬움(대폭↑) |
 | B-03 | 서재 | add_book에 quote_tags 필드 통합 | 방향 합의, 미착수 | B-01 후 |
 
 ### 🟡 대기
@@ -398,6 +398,7 @@ $file = '[파일 절대 경로]'
 
 ## 8. 변경 이력
 
+- 3/25: 어학앱 복습 판정 UI 방향 확정. 도형 3종 → 어려움/보통/쉬움 텍스트 라벨. 틀린 카드 자동 분기 추가. Leitner 3-Box + FSRS 2버튼 논의 조사 후 결정.
 - 3/25: **study AGENTS.md 경량화 완료** (1,130줄→530줄). 함수맵/호출체인/전역변수/스키마(reviewQueue 핵심만 유지)/Phase진행/콘솔레퍼런스 삭제. 경로 수정(C:\dev\study→C:\dev\apps\study, playbook-config→playbook). 레포명 갱신(gorilla→gym, nametag-game→keep). I-01 방향 적용.
 - 3/25: **gym AGENTS.md 경량화 완료** (1,200줄→470줄). 함수맵/호출체인/스키마/전역변수/진행상황/이력 삭제. 규칙+교훈+디자인가이드만 유지. I-01 방향 적용.
 - 3/25: **nametag-game → keep 이름 변경 완료**. GitHub leftjap/nametag-game→leftjap/keep. 로컬 C:\dev\nametag\→C:\dev\apps\keep\. Google Drive 코드 폴더 없음 (스킵). index.html title/apple-mobile-web-app-title 갱신. AGENTS.md 경로 치환. gas/Code.js 확인 (수정 없음). clasp push 완료 (변경사항 없음, 수동 재배포 대기). playbook.md 프로젝트 맵 갱신 (이명표→keep 통합, 상태→운영 중).

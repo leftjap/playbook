@@ -94,6 +94,7 @@
 | B-17 | keep | 지오 게시물 클로드 댓글 구현 | P2 | B-15, B-16 완료 후 |
 | B-18 | keep+서재 | 서재 발췌문 통합: quotes-data.json → app_database.json books에 흡수. 오늘의내비 피드백은 keep GAS로 엔드포인트 변경. 서재 GAS는 폐기 또는 읽기전용. LocalStorage 크기 OK (현재 0.79MB + 발췌문 ~1MB). 미결정: 발췌문 입력 UI, 태그 자동 판단 위치, 102권 마이그레이션, 마크다운 동기화 | P3 | B-01 후. 인수인계서 참조 |
 | B-19 | 서재 | 나머지 13권 quote_tags | P3 | B-01 후 |
+| B-20 | keep | keep 앱 관리자 모드 추가 (현재 소연과 같은 URL 공유 — 시크릿창으로만 계정 전환 가능) | P2 | 인수인계서 4번 미결 사항 |
 
 ### ⚪ 아이디어
 
@@ -127,12 +128,12 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다.
 | ID | 패턴 | 방지책 | 적용 대상 |
 |---|---|---|---|
 | L-01 | Haiku가 수정 위치 못 찾음 | MUST: 함수/선택자 전체를 교체 코드로 제공 | 전체 |
-| L-02 | switchTab else 블록 패널 복원 누락 | MUST: 에디터 서브 패널 복원 체크리스트 포함 | 이름표 |
-| L-03 | gesture.js 인라인 스타일 덮어씀 | MUST: CSS !important + 전용 클래스로 대응 | 이름표 |
+| L-02 | switchTab else 블록 패널 복원 누락 | MUST: 에디터 서브 패널 복원 체크리스트 포함 | keep |
+| L-03 | gesture.js 인라인 스타일 덮어씀 | MUST: CSS !important + 전용 클래스로 대응 | keep |
 | L-04 | clasp push 후 웹앱 미반영 | MUST: 수동 재배포 안내 포함 | GAS 수정 전체 |
 | L-05 | 동기화로 더미 데이터 복귀 | MUST: 서버+로컬 양쪽 정리 + 타임스탬프 엄격 비교 | 운동 |
-| L-06 | import 시 날짜 밀림 | MUST: import 후 미래 날짜 확인 Step | 이름표 |
-| L-07 | 멀티유저 설정 오염 | MUST: USER_CONFIG 보호 체크리스트 확인 | 이름표 |
+| L-06 | import 시 날짜 밀림 | MUST: import 후 미래 날짜 확인 Step | keep |
+| L-07 | 멀티유저 설정 오염 | MUST: USER_CONFIG 보호 체크리스트 확인 | keep |
 | L-08 | sed/tr로 파일 소실 | MUST NOT: Unix 텍스트 도구 사용 금지. PowerShell 또는 VS Code만 | 전체 |
 | L-09 | CLAUDE.md/AGENTS.md 비대화로 AI 준수율 하락 | MUST: 루트 문서는 라우터 역할. 상시 로드 100줄 이하 목표. 작업별 상세는 별도 파일로 progressive disclosure. Instruction budget ~150개 (시스템 프롬프트 ~50개 차감 후 사용자 몫 ~100개) | 전체 |
 | L-10 | GAS Code.js 수정했으나 Apps Script에 수동 복사 필요 | MUST: 모든 GAS 프로젝트에 clasp 설정 완료. 작업지시서에 clasp push Step 포함. Apps Script 에디터에서 수동 복사 금지 | GAS 수정 전체 |

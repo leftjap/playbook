@@ -177,5 +177,5 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다. 해당 교훈이
 
 ## 변경 이력
 
-- 3/28: I-01 문서 경량화 완료. B-39 gym 다세대 백업 체계 구축 (1일1회, 7일분, listBackups/restoreFromBackup). B-43 완료 (구식 내용 정리)
+- 3/28: I-01 문서 경량화 완료. B-39 gym 다세대 백업 체계 구축 (1일1회, 7일분, listBackups/restoreFromBackup). B-43 완료 (구식 내용 정리). keep B-34 완료 (date picker overlay 방식, iOS Safari showPicker() 제한 우회)
 - 3/27: keep B-35~B-37 완료 (파트너 오염 방지, 다세대 백업, 교차 오염 검증). B-38~B-42 추가. gym/study/docs 커밋 다수

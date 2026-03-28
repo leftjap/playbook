@@ -24,10 +24,8 @@
 
 ### 이 구조의 함의 (AI 필독)
 
-1. **작업지시서는 Haiku가 읽는다.** Opus 수준의 추론을 가정하지 말 것. 모든 Step은 명시적·구체적으로 작성한다.
-2. **Opus는 playbook.md를 직접 편집하지 않는다.** 갱신 내용을 작업지시서 Step으로 포함하거나, Claude Code에 직접 지시한다.
-3. **Genspark 세션은 독립적이다.** 이전 대화 내용을 기억하지 않으므로, 매 세션 시작 시 playbook.md 업로드가 필수다.
-4. **토큰 비용 구조:** Opus 대화는 무제한(Genspark), Haiku 실행은 토큰 과금. 따라서 Opus 단계에서 충분히 설계하고 Haiku에게 최소한의 토큰으로 실행시키는 것이 비용 효율적이다.
+작업지시서는 Haiku가 읽는다 — Opus 수준 추론 가정 금지. Opus는 playbook.md를 직접 편집하지 않는다. 세션은 독립적 — 매 세션 playbook.md 업로드 필수.
+상세는 common-rules.md 섹션 12 참조.
 
 ---
 
@@ -67,9 +65,8 @@
 
 모든 프로젝트의 작업지시서 마지막에 playbook.md 갱신 Step을 포함한다.
 
-갱신 대상: 백로그 상태 변경, 교훈 추가, 변경 이력 추가.
+갱신 대상: 백로그 상태 변경, 교훈 추가.
 교훈 추가 조건: ①같은 실수 2회 발생 ②작업지시서 실행 후 예상과 다른 결과 ③사용자가 AI 판단 누락을 지적.
-변경 이력: 최근 3일분만 유지. 같은 날 같은 프로젝트 이력은 한 줄로 합친다.
 완료된 백로그: backlog-archive.md로 이관 후 playbook.md에서 삭제한다.
 
 **필수 규칙:** AI는 모든 작업지시서에 playbook.md 갱신 Step을 자동 포함한다. 빠뜨리면 안 된다.
@@ -77,17 +74,8 @@
 
 ### Progressive Disclosure 원칙
 
-**대전제:** 사용자는 세션 시작 시 playbook.md만 업로드한다. 나머지 모든 운영 문서는 GitHub raw URL로 크롤링 가능해야 한다.
-
-| 규칙 | 기준 |
-|---|---|
-| 신규 문서 | GitHub 레포에 배치. 상위 문서(AGENTS.md 또는 playbook.md)에 참조 URL 기재 |
-| AGENTS.md | 200줄 이하. 초과 시 보조 문서로 분리하고 URL만 남김 |
-| playbook.md | 200줄 이하. 교훈 20건 초과 시 아카이브, 완료 백로그는 backlog-archive.md로 이관 |
-| 변경 이력 | 최근 3일분만 유지. 같은 날 같은 프로젝트는 한 줄로 합침 |
-| 크롤링 한계 초과 (~1,500줄/500KB) | AGENTS.md 소스 참조에 "크롤링 제외 — 업로드 필요" 명시 |
-| 문서 역할 혼재 금지 | Opus용 문서(AGENTS.md)에 Haiku 전용 내용을 넣지 않음. 역도 동일 |
-| 크롤링 제외 파일 | 해당 AGENTS.md 소스 참조에 기록. 크롤링 실패로 업로드 요청한 파일은 AGENTS.md 갱신 시 추가 |
+playbook.md는 200줄 이하 유지. 교훈 20건 초과 시 아카이브. 완료 백로그는 backlog-archive.md로 이관.
+상세 규칙은 common-rules.md 섹션 12 참조.
 
 ---
 
@@ -227,9 +215,3 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다. 해당 교훈이
 
 사용자 상태: "가볍게" → 난이도 낮은 항목. "집중해서" → 임팩트 큰 항목. "빨리 끝내고 싶어" → Step 적은 항목.
 
----
-
-## 변경 이력
-
-- 3/28: I-01 문서 경량화 완료. B-39 gym 다세대 백업. B-40 study 다세대 백업 완료. B-38 persist() 전 프로젝트 적용. B-41 빈 LS 자동 복원 보호 (keep/gym/study). keep/gym 무결성 검증 확대 (docs/books/quotes/sessions 급감 차단, 빈 데이터 전체 차단) — 재배포 및 GAS 테스트 완료. B-43 완료. B-45 CLAUDE.md 생성. 서재/크립토 AGENTS.md 경량화. keep/gym/study CLAUDE.md 중복 제거. docs CLAUDE.md 생성. B-31 오늘의내비 피드백 지침서 분리 완료. 응대 톤 규칙 추가, B-13/B-14 완료(세션 소실/복원), 문서 역할 맵 추가, Progressive Disclosure 개정, 크롤링 제외 규칙 추가, troubleshooting-log.md 신설, L-13 교체, keep/gym AGENTS.md 체크리스트 통합, B-46 완료, I-05 추천앱 아이디어 등록, 설계 편향 방지 D-xx 신설(4-1), L-14 트리거 보강, L-17 추가, 교훈 추가 조건 명시, decisions/ 기록
-- 3/27: keep B-35~B-37 완료 (파트너 오염 방지, 다세대 백업, 교차 오염 검증). B-38~B-42 추가. gym/study/docs 커밋 다수

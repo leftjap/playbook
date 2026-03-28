@@ -11,3 +11,4 @@
 | 2026-03-28 | 2026-03-28_설계-편향-방지-규칙.md | playbook, opus, bias, design-rules | Opus 설계 편향 방지 D-xx 규칙 도입 + decisions 트리거 보강 + 교훈 추가 조건 명시 |
 | 2026-03-28 | 2026-03-28-polt-adoption.md | playbook, opus, code-quality, verification | POLT(Pre-Output Logic Trace) 도입 — common-rules.md 6-1, L-19 |
 | 2026-03-28 | 2026-03-28-analysis-verification-checklist.md | playbook, opus, analysis, design, verification | ALT(Analysis Logic Trace) 도입 — playbook.md 4-2, L-20 |
+| 2026-03-28 | 2026-03-28_opus-rename.md | playbook, naming, opus | playbook.md → opus.md 리네이밍. 레포명 유지, 파일명만 변경 |

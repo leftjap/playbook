@@ -102,8 +102,8 @@
 ### B-58 상세
 - **한 줄 요약:** soft delete 후 서버 loadDatabase() 시 삭제 상태가 덮어씌워져 삭제된 글이 재등장
 - **완료 조건:**
-  - [ ] 삭제한 글이 새로고침·서버 동기화 후에도 표시되지 않음
-- **현재:** 미착수. merge 로직에서 _deleted 플래그 비교 누락 가능성
+  - [x] 삭제한 글이 새로고침·서버 동기화 후에도 표시되지 않음
+- **현재:** 코드 완료. loadDatabase + mergeServerDocs에 _deleted 가드 추가, mergeServerDocs raw 배열 전환
 - **커밋 태그:** B-58
 
 ---

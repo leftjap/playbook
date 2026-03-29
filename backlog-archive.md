@@ -27,6 +27,7 @@
 | B-54 | 운동 | iOS PWA 롱프레스 액션시트 ghost click 닫힘 | 완료 3/29 | _actionSheetOpenTime 타임스탬프, hideActionSheet 400ms 가드 |
 | B-53 | keep | 멀티디바이스 동기화 레이스 컨디션 수정 | 완료 3/29 | loadDatabase merge 방식 전환 + _softDelete updated 갱신 + catch 오타 수정 |
 | B-59 | keep | SMS 수신 시 카드 SMS 시트에 append-only 동시 기록 | 완료 3/29 | saveExpenseFromSMS appendRow + importCardSmsSheet H열 우선 사용 + clasp push |
+| B-60 | keep | Google Drive 외부 로컬 일일 백업 | 3/29 | PowerShell + Task Scheduler 자동화 |
 
 ### B-48 운동 · 종목 네비 롱프레스 바텀시트 — 완료 (2026-03-28)
 - **한 줄 요약:** 종목 네비 버튼을 꾹 누르면 종목 완료/삭제 바텀시트가 뜨도록 하는 기능
@@ -118,3 +119,12 @@
   - [x] 기존 형식(H열 없음)과 새 형식(H열 있음) 데이터 모두 호환성 유지
 - **현재:** 완료. Code.js 변경 2건 + clasp push 완료. GAS 웹앱 재배포 및 실사용 검증 대기.
 - **커밋 태그:** B-59
+
+### B-60 keep · Google Drive 외부 로컬 일일 백업 — 완료 (2026-03-29)
+- **한 줄 요약:** Google Drive 장애에 대비하여 keep DB를 매일 로컬 PC에 자동 백업하는 스크립트
+- **완료 조건:**
+  - [x] PowerShell 스크립트가 GAS에서 DB를 받아 로컬에 저장한다
+  - [x] Task Scheduler에 매일 03:00 실행으로 등록되어 있다
+  - [x] 30일 이전 백업 파일이 자동 삭제된다
+  - [x] 빈 DB는 백업하지 않는다
+- **완료 커밋:** B-60

@@ -25,6 +25,7 @@
 | B-48 | 운동 | 종목 네비 롱프레스 바텀시트 | 완료 3/28 | bindNavLongPress에 showNavActionSheet 추가 |
 | B-52 | 운동 | 종목카드 PR 기준 자극 메시지 | 완료 3/29 | getExerciseBestSessionVolume 추가, motivateHtml 재구성, 세트 환산, 톤 변화 |
 | B-54 | 운동 | iOS PWA 롱프레스 액션시트 ghost click 닫힘 | 완료 3/29 | _actionSheetOpenTime 타임스탬프, hideActionSheet 400ms 가드 |
+| B-53 | keep | 멀티디바이스 동기화 레이스 컨디션 수정 | 완료 3/29 | loadDatabase merge 방식 전환 + _softDelete updated 갱신 + catch 오타 수정 |
 
 ### B-48 운동 · 종목 네비 롱프레스 바텀시트 — 완료 (2026-03-28)
 - **한 줄 요약:** 종목 네비 버튼을 꾹 누르면 종목 완료/삭제 바텀시트가 뜨도록 하는 기능
@@ -96,3 +97,13 @@
   - [x] 크롬 탭에서도 동일하게 동작한다
 - **현재:** 완료. js/ui.js hideActionSheet에 400ms ghost click 가드 추가.
 - **커밋 태그:** B-54
+
+### B-53 keep · 멀티디바이스 동기화 레이스 컨디션 수정 — 완료 (2026-03-29)
+- **한 줄 요약:** 여러 기기에서 keep을 쓸 때, 한 기기에서 쓴 글이 다른 기기의 구 데이터로 덮어씌워져 사라지는 버그를 수정하는 작업
+- **완료 조건:**
+  - [x] 기기 A에서 글을 쓰고, 기기 B를 열어도 글이 사라지지 않는다
+  - [x] 소연이 아이폰 PWA에서 글을 쓰고 다음날 확인해도 글이 유지된다
+  - [x] 소연의 "03.28.제주" 글이 백업에서 복원되었다
+  - [x] 테스트 글 "주말 한강 피크닉"이 제거되었다
+- **현재:** 완료. loadDatabase merge 방식 전환 + _softDelete updated 갱신 + catch 오타 수정.
+- **커밋 태그:** B-53

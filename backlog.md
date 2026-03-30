@@ -50,7 +50,6 @@
 | B-03 | 서재 | 새 책 등록 시 인용문 태그 자동 포함 | 방향 합의, 미착수 |
 | B-54 | keep | 데이터 보존 안전장치 (soft delete + 소실 차단 + 백업 30일) | 코드 완료, 배포 대기 |
 | B-55 | keep | 휴지통 UI — 삭제된 항목 조회 및 복원 | 코드 완료 (서버 가드 자동 보정 전환), GAS 재배포 + 검증 대기 |
-| B-57 | keep | iOS PWA 제목→본문 탭 시 UI 깨짐 | 미착수 |
 
 ### B-01 상세
 - **한 줄 요약:** 서재에 등록된 89권의 책에 인용문 태그를 한꺼번에 붙여서, 책별로 어떤 주제의 인용문이 있는지 바로 볼 수 있게 하는 작업
@@ -105,25 +104,6 @@
   - [x] 모바일/태블릿/PC에서 정상 동작 확인
 - **현재:** 코드 완료. 쓰기 함수(newDoc/saveBook/saveQuote/saveMemo/togglePin) raw 배열 전환 + saveCurDoc _deleted 보존 + 서버 가드 자동 보정 + push 실패 시 서버 덮어쓰기 방지 + **saveCurDoc 빈 문서 덮어쓰기 레이스 컨디션 가드 추가**. GAS 재배포 + 검증 대기.
 - **커밋 태그:** B-55
-
-### B-57 상세
-- **한 줄 요약:** iOS PWA에서 제목 입력 후 본문 탭 시 툴바·리스트가 사라지고 빈 화면만 표시되는 버그
-- **완료 조건:**
-  - [ ] iOS PWA에서 제목→본문 전환 시 정상 레이아웃 유지
-- **관련 코드:** editor.js setupEnterKey(Enter 시 edBody.focus) + setupAutoSave(blur → saveLocalOnly 200ms) / style.css .editor(position:fixed, inset:0) + 모바일 미디어쿼리(max-width:768px) / ui.js setMobileView
-- **재현:**
-  - 환경: iOS PWA (기기 모델·iOS 버전 미확인)
-  - 경로: 1. iOS PWA에서 글 열기 또는 새 글 생성 2. 제목 필드 탭 → 키보드 올림 3. 제목 입력 4. 본문 영역 탭
-  - 관찰: 미확인 — "툴바·리스트가 사라지고 빈 화면"의 구체적 상태를 실기기에서 확인 필요
-  - 기대: 키보드 유지 + 본문에 커서 이동, 레이아웃 변화 없음
-  - 빈도: 미확인
-- **원인 추정:**
-  - ①의심 경로: iOS에서 input→contenteditable 포커스 전환 시 키보드 닫힘→재오픈으로 viewport 급변 → position:fixed 레이아웃 붕괴. L-12(iOS PWA 하단 고정 버튼 5회 시행착오)와 같은 계열
-  - ②확인: CSS 정적 분석 — .editor는 position:fixed+inset:0, 모바일에서 transform:translateX(0). iOS 키보드 토글 시 bottom:0 재계산 가능성 확인
-  - ②배제: JS 로직(switchTab, setMobileView)은 제목→본문 탭 시 호출되지 않으므로 JS 원인 가능성 낮음
-  - ③다음 단계: iOS 실기기에서 재현 후 ⑴깨진 상태에서 DevTools로 display:none/height:0인 요소 확인 ⑵visualViewport.height와 window.innerHeight 비교 로그 삽입
-- **현재:** 미착수. CSS 정적 분석 완료, iOS 실기기 재현 대기
-- **커밋 태그:** B-57
 
 ---
 

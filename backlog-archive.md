@@ -30,6 +30,7 @@
 | B-60 | keep | Google Drive 외부 로컬 일일 백업 | 3/29 | PowerShell + Task Scheduler 자동화 |
 | B-58 | keep | 삭제한 글이 새로고침 후 다시 나타남 | 3/29 | merge 시 _deleted 가드 + push 실패 시 dirty flag로 서버 pull 차단 |
 | B-56 | keep | 에디터에서 제목을 입력해도 리스트에 반영되지 않음 | 3/30 | saveLocalOnly에서 .lp-item.on 제목 경량 갱신 추가 |
+| B-57 | keep | iOS PWA 제목→본문 탭 시 UI 깨짐 | 3/30 | edBody focus 시 scrollArea.scrollTop + window.scrollTo 보정 |
 
 ### B-48 운동 · 종목 네비 롱프레스 바텀시트 — 완료 (2026-03-28)
 - **한 줄 요약:** 종목 네비 버튼을 꾹 누르면 종목 완료/삭제 바텀시트가 뜨도록 하는 기능
@@ -149,3 +150,13 @@
 - **해결:** saveLocalOnly 함수에서 showSaved() 다음에 현재 선택된 리스트 항목(.lp-item.on .lp-item-title)의 textContent를 에디터 제목 필드 값으로 동기화. 전체 renderListPanel() 호출 대신 경량 업데이트로 성능 최적화.
 - **현재:** ✅ 완료 (editor.js setupAutoSave → saveLocalOnly 함수에 리스트 제목 경량 갱신 로직 추가)
 - **커밋 태그:** B-56
+
+### B-57 keep · iOS PWA 제목→본문 탭 시 UI 깨짐 — 완료 (2026-03-30)
+- **한 줄 요약:** iOS PWA에서 제목 입력 후 본문 탭 시 툴바·리스트가 사라지고 빈 화면만 표시되는 버그
+- **완료 조건:**
+  - [x] iOS PWA에서 제목→본문 전환 시 정상 레이아웃 유지
+- **관련 코드:** editor.js setupEnterKey(Enter 시 edBody.focus) + edBody focus 이벤트 리스너 (스크롤 보정) / style.css .editor(position:fixed, inset:0) + 모바일 미디어쿼리 / ui.js setMobileView
+- **원인:** iOS Safari에서 `<input>` → `contenteditable` 포커스 전환 시, 키보드 닫힘/재오픈 과정에서 `.editor-scroll-area`가 과도하게 스크롤됨. position:fixed 에디터 내부의 스크롤 컨테이너가 비정상 scrollTop 값을 갖게 되어 에디터 콘텐츠가 화면 밖으로 밀림
+- **해결:** `edBody` focus 이벤트 리스너 추가. focus 시 `requestAnimationFrame`에서 `.editor-scroll-area`의 scrollTop을 0으로 리셋하고, `window.scrollTo(0,0)`으로 window 스크롤도 복원. iOS가 내부적으로 키보드 토글 시 스크롤을 과도하게 조정하는 문제를 JS에서 보정.
+- **현재:** ✅ 완료 (editor.js setupEnterKey 함수에 edBody focus 시 스크롤 보정 로직 추가)
+- **커밋 태그:** B-57

@@ -170,7 +170,7 @@
     - [ ] 보호 규칙 테스트가 프로젝트에 영구 커밋되어 정식 테스트 스위트로 운영된다
 - **관련 코드:** 전 웹앱 공통. keep `js/data.js` `js/sync.js` (데이터 CRUD·동기화), gym/study/explorer 동일 패턴
 - **선행 조건:** 없음
-- **현재:** keep Phase 1 완료. 4개 영역 32+ 테스트, pre-commit hook으로 커밋 차단 동작 확인. 다음: 다른 프로젝트(gym/study/explorer) 확산 또는 Phase 2(시각적 회귀 테스트) 검토
+- **현재:** keep Phase 1 완료 (4개 영역 32+ 테스트). gym Phase 1 완료 (4개 영역 — 세션 CRUD, PR 판정, sync 병합, 세트 무결성). study·explorer는 개발 안정 후 착수. 다음: Phase 2(시각적 회귀 테스트) 검토 또는 백로그 진행
 - **커밋 태그:** B-57
 
 ### I-05 상세

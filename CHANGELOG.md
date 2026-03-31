@@ -1,6 +1,7 @@
 ## 2026-03-31
 
 ### Added
+- B-75: 백로그 대시보드(단일 HTML) 백로그 등록 (P2, 🟡 대기)
 - common-rules.md 자동 테스트 규칙(Regression Guard) — 테스트 실행 의무, 실패 보고 형식, 금지 행동 정의 (B-57)
 - keep/gym .claude/settings.json PreToolUse hook — --no-verify 우회 차단 (B-57)
 

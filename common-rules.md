@@ -126,6 +126,16 @@
 - MUST: 하나의 작업지시서에 "기능 추가"와 "버그 수정"을 혼합하지 않는다. 작업 중 발견한 버그는 별도 작업지시서로 처리한다
 - MUST: 기존 테스트 파일(__tests__/, *.test.*, *.spec.*)은 수정 금지. 새 테스트만 추가 가능 (테스트 인프라 도입 후 적용)
 
+#### 변경 금지 CSS 속성 (keep)
+아래 속성은 `B-57 PROTECT` 주석으로 표시되어 있으며, 삭제·값 변경 시 반드시 iOS PWA 실기기 검증 후 진행한다.
+- `.editor-content-wrap` → `min-height`
+- `.ed-topbar` → `position`
+- `safe-area-inset-bottom` 관련 `padding-bottom` 전체
+
+#### 변경 금지 상태 변수 (keep gesture.js)
+gesture.js는 파일 전체가 수정 금지이나, 특히 아래 상태 변수의 초기화 로직은 어떤 이유로든 생략할 수 없다:
+`_gestureActive`, `swiping`, `swipeDir`, `decided`
+
 ### 반복 실패 방지
 - 동일 증상 fix/style 커밋 2회 연속 실패 시 3회차 전 사용자에게 경고: "⚠️ 컨텍스트 오염 확률이 높습니다. 다른 세션에서 시도해 보세요."
 - 3회 연속 실패 시 즉시 중단, 시도 내역·실패 원인·다음 방향을 정리하여 보고

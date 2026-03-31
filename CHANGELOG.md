@@ -5,6 +5,8 @@
 - keep/gym .claude/settings.json PreToolUse hook — --no-verify 우회 차단 (B-57)
 
 ### Changed
+- D-xx 설계 편향 방지 규칙을 구조적 출력 강제(D-check) 방식으로 전환 — 태도 규칙("~하지 마라")에서 절차적 출력 구조(리스크/전제/판단 블록 필수)로 변경. D-07(의사결정 전가 금지) 신설. 근거: DSIT "Ask don't tell" 논문(구조적 개입 > 명시적 지시) (opus.md, B-74)
+- B-74 등록 — 운영 프롬프트 전면 재점검 (backlog.md)
 - common-rules.md 경량화 — 변경 금지 CSS/상태 변수를 AGENTS.md 참조로 대체, POLT·방향 확인서·디버깅 프로토콜·상투 문구 압축, 불필요 섹션 4개 삭제(§7 코드 비대화·§8 업로드 검증·§9 디버깅·§11 참조 우선순위). ~109줄 절감 (common-rules.md)
 - backlog.md 테이블에 "종류"·"우선순위" 컬럼 통일 — 🔴·🟡 테이블 모두 6컬럼 체계로 변경. 종류: 버그/새 기능/개선/운영 (backlog.md)
 - opus.md 섹션 2에 백로그 호출 출력 형식 추가 — ID+프로젝트+작업명+상태 한마디+한 줄 요약 2줄 형식 (opus.md)

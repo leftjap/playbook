@@ -132,6 +132,15 @@
 - `.ed-topbar` → `position`
 - `safe-area-inset-bottom` 관련 `padding-bottom` 전체
 
+#### 변경 금지 CSS 속성 (gym)
+아래 속성은 `B-57 PROTECT` 주석으로 표시되어 있으며, 삭제·값 변경 시 반드시 iOS PWA 실기기 검증 후 진행한다.
+- `.screens-container` → `padding-bottom` (safe-area-inset-bottom)
+- `.workout-header` → `padding-top` (safe-area-inset-top)
+- `.workout-content` → `padding-top` (safe-area-inset-top + 80px)
+- `.rest-timer-bar` → `bottom` (safe-area-inset-bottom + 88px)
+- `.stats-header`, `.settings-header` → `padding-top` (safe-area-inset-top)
+- `.settings-content`, `.stats-scroll-area` → `padding-bottom` (safe-area-inset-bottom)
+
 #### 변경 금지 상태 변수 (keep gesture.js)
 gesture.js는 파일 전체가 수정 금지이나, 특히 아래 상태 변수의 초기화 로직은 어떤 이유로든 생략할 수 없다:
 `_gestureActive`, `swiping`, `swipeDir`, `decided`

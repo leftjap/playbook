@@ -34,6 +34,7 @@
 | B-61 | keep | iOS PWA 초기 로드 시 빈 문서 자동 생성 방지 | 3/30 | _serverLoaded 플래그 추가, init() 조건 보강 |
 | B-54 | keep | 데이터 보존 안전장치 (soft delete + 소실 차단 + 백업 30일) | 3/30 | 코드 완료 + 검증 완료. 30일 자동 정리는 시간 경과 후 확인 |
 | B-62 | opus | 작업지시서 범위 이탈 방지 + 세션 시작 흐름 재설계 | 3/31 | Scope Control 규칙 5건 + 세션 시작 흐름 변경 + 실 운영 검증 완료 |
+| B-02 | 어학 | 카드 난이도 판정 → 복습 일정 자동 조정 | 3/31 | judgeReview O/△/X → nextReview 갱신 + saveLangData + saveToServer 완료. getReviewItems 필터 정상 동작 확인 |
 
 ### B-48 운동 · 종목 네비 롱프레스 바텀시트 — 완료 (2026-03-28)
 - **한 줄 요약:** 종목 네비 버튼을 꾹 누르면 종목 완료/삭제 바텀시트가 뜨도록 하는 기능
@@ -196,3 +197,14 @@
   - [x] 변경된 규칙으로 1회 이상 세션을 운영하여 효과를 확인한다
 - **현재:** 완료. common-rules.md Scope Control 5건 + opus.md 세션 시작 흐름 변경 + 2026-03-31 세션에서 실 운영 검증 완료.
 - **커밋 태그:** B-62
+
+### B-02 어학 · 카드 난이도 판정 → 복습 일정 자동 조정 — 완료 (2026-03-31)
+- **한 줄 요약:** 단어장 카드를 넘긴 뒤 '어려움/보통/쉬움'을 고르면, 다음에 그 카드를 언제 다시 볼지 자동으로 정해주는 기능
+- **완료 조건:**
+  - [x] 카드를 좌우로 넘기면 다음 단어가 나온다
+  - [x] 넘긴 뒤 난이도 버튼 3개가 표시된다 (도형으로 구분)
+  - [x] 버튼을 누르면 난이도에 따라 복습 날짜가 계산된다 (어려움: 유지~소폭↑ / 보통: 표준↑ / 쉬움: 대폭↑)
+  - [x] 계산된 날짜에 맞춰 실제 복습 목록이 갱신된다
+- **관련 코드:** study js/review.js judgeReview (O/△/X 분기) → currentInterval·consecutivePasses 조정 → js/storage.js reviewQueue 갱신
+- **현재:** ✅ 완료. judgeReview → nextReview 갱신 + saveLangData + saveToServer 동작 확인. getReviewItems의 nextReview ≤ today 필터로 복습 목록 자동 반영.
+- **커밋 태그:** B-02

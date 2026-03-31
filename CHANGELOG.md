@@ -5,6 +5,7 @@
 - keep/gym .claude/settings.json PreToolUse hook — --no-verify 우회 차단 (B-57)
 
 ### Changed
+- common-rules.md 경량화 — 변경 금지 CSS/상태 변수를 AGENTS.md 참조로 대체, POLT·방향 확인서·디버깅 프로토콜·상투 문구 압축. 약 67줄 절감 (common-rules.md)
 - backlog.md 테이블에 "종류"·"우선순위" 컬럼 통일 — 🔴·🟡 테이블 모두 6컬럼 체계로 변경. 종류: 버그/새 기능/개선/운영 (backlog.md)
 - opus.md 섹션 2에 백로그 호출 출력 형식 추가 — ID+프로젝트+작업명+상태 한마디+한 줄 요약 2줄 형식 (opus.md)
 - opus.md 섹션 6에 종류 정의 테이블 추가 (opus.md)

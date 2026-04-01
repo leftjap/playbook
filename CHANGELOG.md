@@ -16,6 +16,7 @@
 - ALT 출력 규칙: 결함 없을 때도 `✅ ALT` 한 줄 필수 출력 — 오토리그레시브 모델 특성상 출력이 실행을 강제. (opus.md)
 - 검증 강도 규칙(섹션 4) 삭제, POLT 강화 조건으로 흡수. (opus.md, common-rules.md)
 - POLT 적용 조건에 "규모 무관·작업지시서마다 독립 수행" 명시. (common-rules.md)
+- POLT·ALT 출력 규칙: "결함 없음" 시에도 점검 대상 명시 의무화 — 라벨만 출력하는 의식화 방지. (common-rules.md, opus.md)
 
 ### Removed
 - .backlog.md.bak 제거, migrate 스크립트 4건 제거. .gitignore 추가. (정리)

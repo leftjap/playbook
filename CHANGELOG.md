@@ -1,5 +1,8 @@
 ## 2026-04-02
 
+### Added
+- 작업지시서 규모 제한 규칙 추가 (common-rules.md 섹션 2) — Haiku 후반 Step 생략 방지 목적. (common-rules.md)
+
 ### Changed
 - D-check 테이블 → 산문 압축. 점검 항목 유지, 테이블 형식 제거 — Opus 4.6 내재 지식으로 트리거 가능한 범용 개념이므로. (opus.md)
 - ALT 출력 규칙: 결함 없을 때도 `✅ ALT` 한 줄 필수 출력 — 오토리그레시브 모델 특성상 출력이 실행을 강제. (opus.md)

@@ -86,6 +86,7 @@ opus.md 갱신 Step 실행 시 줄 수를 확인한다. 200줄 초과 시 아카
 | 크립토 | `C:\dev\docs\투자 전략\` | `leftjap/docs` | `투자 전략/AGENTS.md` | 문서 수시 갱신 |
 | keep | `C:\dev\apps\keep\` | `leftjap/keep` | 루트 | 운영 중 |
 | Explorer | `C:\dev\apps\explorer\` | `leftjap/explorer` | 루트 | 운영 중 |
+| 백로그 칸반 | `C:\dev\apps\backlog\` | `leftjap/backlog` | 루트 | 운영 중 |
 
 ---
 

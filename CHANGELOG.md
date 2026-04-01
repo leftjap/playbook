@@ -2,6 +2,8 @@
 
 ### Added
 - 작업지시서 규모 제한 규칙 추가 (common-rules.md 섹션 2) — Haiku 후반 Step 생략 방지 목적. (common-rules.md)
+- CHANGELOG Fixed 항목 원인 태그 형식 `[영역.세부원인]` 정의 (common-rules.md) — 교훈 자동 감지의 실행 조건 충족 목적
+- 교훈 후보 감지 시 커밋 diff 크롤링 절차 및 영역 3회+ 확인 규칙 추가 (opus.md)
 
 ### Changed
 - D-check 테이블 → 산문 압축. 점검 항목 유지, 테이블 형식 제거 — Opus 4.6 내재 지식으로 트리거 가능한 범용 개념이므로. (opus.md)

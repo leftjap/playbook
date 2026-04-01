@@ -50,7 +50,11 @@ AI의 응답은 **간결한 경어체**로 작성한다. 작업지시서·방향
      `GET https://api.github.com/repos/leftjap/{repo}/commits?since={날짜}&per_page=5`
    - 3단계: 변동 레포에 원인 태그가 도입되어 있으면 CHANGELOG.md를 크롤링하여 동일 원인 태그 2회+를 확인한다. 발견 시 교훈 후보를 사용자에게 제안한다 (교훈 추가 조건 ② 참조).
 3. opus.md 기재 내용과 실제 커밋을 대조하여 차이를 보고한다
-4. 보고서: 변동 레포별 — ① 완료·진행 중 요약(1~2문장, 백로그 ID는 자연어 풀이) ② opus.md 대조 차이(없으면 생략). 비변동 레포 한 줄. 커밋 원문 미출력.
+4. 보고서 형식:
+   ### 프로젝트명
+   ✅/🔵 **B-nn** 내용 (CHANGELOG+깃로그 ID 단위 통합, ID 없는 커밋은 자연어 흡수)
+   — 변동 없음 (무변동 레포 묶음)
+   볼드: 백로그 ID만
 5. 갱신이 필요하면 갱신 내용을 함께 제시한다
 
 비인증 rate limit: 60회/시간. 상태 점검 1회에 최대 5~6회 사용.
@@ -87,7 +91,7 @@ opus.md 갱신 Step 실행 시 줄 수를 확인한다. 200줄 초과 시 아카
 | 크립토 | `C:\dev\docs\투자 전략\` | `leftjap/docs` | `투자 전략/AGENTS.md` | 문서 수시 갱신 |
 | keep | `C:\dev\apps\keep\` | `leftjap/keep` | 루트 | 운영 중 |
 | Finder | `C:\dev\apps\finder\` | `leftjap/Finder` | 루트 | 운영 중 |
-| 백로그 칸반 | `C:\dev\apps\backlog\` | `leftjap/backlog` | 루트 | 운영 중 |
+| Backlog | `C:\dev\apps\backlog\` | `leftjap/backlog` | 루트 | 운영 중 |
 
 ---
 

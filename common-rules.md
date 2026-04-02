@@ -62,6 +62,12 @@
 **버그 수정**: 수정 전에 원인을 먼저 설명. 새 규칙 덮어쓰기 금지. 잘못된 선언을 직접 수정.
 **정리(리팩토링)**: 동작 변경 없음을 확인한다.
 
+#### 데이터 스키마 변경
+LocalStorage·GAS DB의 필드 추가/삭제/이름 변경 시:
+- 신규 필드: 기존 데이터에 fallback 기본값 제공 (예: `field ?? defaultValue`)
+- 삭제/이름 변경: 마이그레이션 함수 작성, 앱 시작 시 1회 실행, 멱등성 보장
+- 변경 내역을 CHANGELOG에 기록
+
 ---
 
 ## 4. 갱신 규칙
@@ -100,6 +106,16 @@ Code.js 수정 시 반드시 clasp push Step을 포함한다.
 - MUST NOT: 새 배포(Deploy → New deployment)를 생성한다 — URL이 변경되어 모든 클라이언트의 GAS_URL 수정이 필요해진다.
 - MUST: GAS 배포 성공 후 Git 커밋. GAS 실패 시 클라이언트 코드도 푸시하지 않는다.
 - MUST NOT: 작업지시서에 "Google Apps Script 에디터에서 수동 재배포" 안내를 포함한다. GitHub Actions auto-deploy(B-63)가 처리한다.
+
+#### 배포 후 검증
+clasp push 완료 후, 해당 프로젝트의 기존 GET 액션(예: list_books, load_db)을 1회 호출하여 HTTP 200 응답을 확인한다. 실패 시 커밋하지 않고 사용자에게 보고한다.
+
+#### 롤백 절차
+1. `clasp versions` 로 이전 버전 번호 확인
+2. `clasp deploy -i {deploymentId} -V {이전버전번호} -d "rollback"`
+3. 관련 git 커밋을 `git revert` 로 되돌림
+
+※ 현재 프로젝트는 clasp v2.x 기준이다. v3.x 전환 시 `clasp list-versions` → `clasp create-deployment --deploymentId {id} -V {ver}` 로 변경한다.
 
 ---
 

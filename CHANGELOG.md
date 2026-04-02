@@ -1,6 +1,10 @@
 ## 2026-04-02
 
 ### Changed
+- opus.md에 규칙 충돌 해소 우선순위 삽입 (사용자 지시+보호 코드 병렬, 이후 AGENTS > common-rules > opus). [opus-88]
+- L-13 방지책 강화: 동일 영역 3회 실패 시 Track B 전환, 증거 없는 가설 변경 금지. [opus-88]
+- common-rules.md에 GAS 배포 후 스모크 테스트 및 롤백 절차 추가 (clasp v2.x 기준). [opus-88]
+- common-rules.md에 데이터 스키마 변경 규칙 추가 (fallback, 마이그레이션, 멱등성). [opus-88]
 - POLT 강화 조건에 confident-but-wrong 방지 문구 추가 — 강화 조건 해당 시 최종 확인 항목에 구체적 입력값·기대 결과 명시, 리스크 기반 우선 배치. 근거: Meta Semi-Formal Reasoning(arXiv:2603.01896), Gawande Checklist Manifesto. (common-rules.md)
 - ALT A-2 출력 규칙에 외부 참조 확인 상태 표기 추가 — 비개발자가 검증 신뢰도를 판단할 수 있도록 (확인됨)/(캐시 참조)/(미확인) 구분. (opus.md)
 - POLT ① Dry Run에 테스트 생성 시 실제 출력 기반 expected 설정 규칙 추가 — AI가 expected를 추측하지 않도록 강제. (common-rules.md)

@@ -1,7 +1,30 @@
 ## 🔴 진행 중
 | ID | 등록일 | 프로젝트 | 작업 | 종류 | 메모 |
 |---|---|---|---|---|---|
-| all-91 | 04/02 19:44 | 전체 (복합) | CSS 정적 검사 | 신규 |  |
+| all-91 | 04/02 19:44 | 전체 (복합) | CSS 정적 검사 | 신규 | - **등록일:** 03/31 19:45
+- **한 줄 요약:** style.css를 텍스트로 읽어 B-57 PROTECT 보호 속성(선택자+속성+env 호출)이 존재하는지 정규식으로 검증하는 테스트를 keep·gym의 npm test에 추가하는 작업
+- **완료 조건:**
+  - [ ] keep `__tests__/css-guard.test.js` 생성 — style.css에서 아래 항목의 존재를 정규식으로 검증:
+    - `.editor-content-wrap` 내 `min-height` 선언 존재
+    - `#ed-topbar` 내 `position` 선언 존재
+    - `safe-area-inset-bottom` 문자열이 style.css에 1회 이상 존재
+    - `B-57 PROTECT` 주석이 보호 대상 속성 근처에 존재
+  - [ ] gym `__tests__/css-guard.test.js` 생성 — style.css에서 아래 항목의 존재를 정규식으로 검증:
+    - `.screens-container` 내 `safe-area-inset-bottom` 존재
+    - `#rest-timer-bar` 내 `position:\s*fixed` 존재
+    - `#rest-timer-bar` 내 `z-index:\s*150` 존재
+    - `.workout-content` 내 `safe-area-inset-top` 존재
+    - `B-57 PROTECT` 주석이 보호 대상 속성 근처에 존재
+  - [ ] 양쪽 모두 `npm test` 통과
+  - [ ] 보호 속성 하나를 임시 삭제 후 테스트 실패 확인 (역검증)
+- **관련 코드:**
+  - keep `style.css` — .editor-content-wrap (min-height), #ed-topbar (position), safe-area-inset-bottom padding
+  - gym `style.css` — .screens-container (padding-bottom), #rest-timer-bar (position, z-index), .workout-content (padding-top)
+  - 신규: keep `__tests__/css-guard.test.js`, gym `__tests__/css-guard.test.js`
+- **선행 조건:** 없음 (즉시 착수 가능. 추가 의존성 없음)
+- **현재:** 방식 확정 완료 — CSS 파일 정적 텍스트 검사(정규식). 브라우저 불필요, 기존 node --test 파이프라인에 파일 추가만으로 동작. 착수 대기.
+- **커밋 태그:** all-72
+- **중요:** true |
 | backlog-89 | 04/02 17:24 | Backlog | 백로그앱에 이미지 추가 | 신규 |  |
 | all-90 | 04/02 17:25 | 전체 (복합) | 백로그앱/파인더 업데이트시 앱종료해야 하는 불편함 | 버그 |  |
 | all-72 | 03/31 19:45 | 전체 (복합) | CSS 보호 속성 자동 탐지 테스트 | 운영 | keep-57 완료 후 후속 과제 |

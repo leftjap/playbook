@@ -1,7 +1,28 @@
 ## 🔴 진행 중
 | ID | 등록일 | 프로젝트 | 작업 | 종류 | 메모 |
 |---|---|---|---|---|---|
-| all-92 | 04/02 19:45 | 전체 (복합) | (Playwright toHaveCSS) | 운영 | 신규 |  |
+| all-92 | 04/02 19:45 | 전체 (복합) | (Playwright toHaveCSS) | 운영 | 신규 | - **등록일:** 04/02 19:40
+- **한 줄 요약:** CSS 파일이 아닌 JS(인라인 스타일 덮어쓰기)나 HTML(구조 변경)로 뷰가 깨지는 경우를 탐지하기 위해, Playwright toHaveCSS()로 실제 렌더링된 computed CSS 값을 검증하는 E2E 가드 테스트를 keep·gym에 도입하는 작업
+- **완료 조건:**
+  - [ ] keep·gym에 `npm install -D @playwright/test` + `npx playwright install chromium` 완료
+  - [ ] keep 가드 테스트: localhost에서 모바일 뷰포트(375×812)로 페이지 로드 후 아래 검증:
+    - `#ed-topbar`의 computed `position`이 `sticky` 또는 `fixed`
+    - `.editor-content-wrap`의 computed `min-height`가 `0px`이 아님
+    - switchTab() 호출 후 `.editor-panel` 중 visible인 요소가 정확히 1개
+  - [ ] gym 가드 테스트: localhost에서 모바일 뷰포트(375×812)로 페이지 로드 후 아래 검증:
+    - `#rest-timer-bar`의 computed `position`이 `fixed`
+    - `#rest-timer-bar`의 computed `z-index`가 `150`
+    - `.screens-container`의 computed `padding-bottom`이 `0px`이 아님
+  - [ ] 양쪽 모두 테스트 통과
+  - [ ] JS에서 인라인 스타일로 position을 변경하는 코드를 임시 추가 후 테스트 실패 확인 (역검증)
+- **관련 코드:**
+  - keep: style.css, js/ui.js (switchTab), js/gesture.js (인라인 display), index.html
+  - gym: style.css, js/ui.js (showScreen), js/workout.js (rest timer), index.html
+  - 신규: keep `playwright.config.js`, keep `e2e/css-guard.spec.js`, gym 동일
+- **선행 조건:** all-72 완료 (CSS 정적 검사 먼저 도입). keep-15 등 복잡한 UI 기능 추가 시점에 도입 권장.
+- **현재:** 미착수. 방식 확정 완료 — Playwright toHaveCSS() + 모바일 뷰포트. 단, env(safe-area-inset-*)는 데스크톱 Chromium에서 0px이므로 해당 항목은 all-72(정적 검사)가 담당. Playwright는 position/display/z-index 등 데스크톱에서도 computed value가 확정되는 속성만 검증.
+- **커밋 태그:** all-91
+- **중요:** false |
 | all-91 | 04/02 19:44 | 전체 (복합) | CSS 정적 검사 | 신규 | - **등록일:** 03/31 19:45
 - **한 줄 요약:** style.css를 텍스트로 읽어 B-57 PROTECT 보호 속성(선택자+속성+env 호출)이 존재하는지 정규식으로 검증하는 테스트를 keep·gym의 npm test에 추가하는 작업
 - **완료 조건:**
